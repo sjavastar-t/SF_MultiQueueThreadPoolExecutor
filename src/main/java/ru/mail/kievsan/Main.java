@@ -18,14 +18,23 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         int cores = Runtime.getRuntime().availableProcessors();
 
-        var executor = new MultiQueueThreadPoolExecutor(
-                cores - 1, 2 * cores, 10, 5, TimeUnit.SECONDS, 2
-        );
+//        var executor_2_default_cors = new MultiQueueThreadPoolExecutor(cores - 1, 2 * cores, 10, 5, TimeUnit.SECONDS, 2);
+//        var executor_4_default_cors = new MultiQueueThreadPoolExecutor(cores - 1, 4 * cores, 10, 5, TimeUnit.SECONDS, 2);
+//        var executor_6_default_cors = new MultiQueueThreadPoolExecutor(cores - 1, 6 * cores, 10, 5, TimeUnit.SECONDS, 2);
+//        var executor_8_default_cors = new MultiQueueThreadPoolExecutor(cores - 1, 8 * cores, 10, 5, TimeUnit.SECONDS, 2);
+        var executor_10_default_cors = new MultiQueueThreadPoolExecutor(cores - 1, 10 * cores, 10, 5, TimeUnit.SECONDS, 2);
 
-//        logStats(test(100, 100, 10, executor));
-        logStats(test(1000, 100, 10, executor));
+//        logStats(test(1000, 300, 10, executor_2_default_cors));
+//        logStats(test(1000, 300, 10, executor_4_default_cors));
+//        logStats(test(1000, 300, 10, executor_6_default_cors));
+//        logStats(test(1000, 300, 10, executor_8_default_cors));
+        logStats(test(1000, 300, 10, executor_10_default_cors));
 
-        executor.shutdown();
+//        executor_2_default_cors.shutdown();
+//        executor_4_default_cors.shutdown();
+//        executor_6_default_cors.shutdown();
+//        executor_8_default_cors.shutdown();
+        executor_10_default_cors.shutdown();
     }
 
     private static void logStats(long resultTime) {
